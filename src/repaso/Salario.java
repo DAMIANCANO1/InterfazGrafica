@@ -9,7 +9,7 @@ package repaso;
  * @author damia
  */
 public class Salario extends javax.swing.JFrame {
-    
+
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Salario.class.getName());
 
     /**
@@ -17,6 +17,28 @@ public class Salario extends javax.swing.JFrame {
      */
     public Salario() {
         initComponents();
+        this.setTitle("PROGRAMA #3");
+        this.setLocationRelativeTo(null);
+    }
+
+    public void Final() {
+        double sueldo = Double.parseDouble(Salario.getText());
+
+        if (sueldo < 1500) {
+            Salida.setText(" SIN RETENCION DE SUELDO");
+        } 
+        else if (sueldo >= 1500 && sueldo < 3000) {
+            double porcentaje = 5;
+            porcentaje = porcentaje / 100;
+            double total = porcentaje * sueldo;
+            Salida.setText("LA RETENCION DE SU SUELDO ES DE: " + total);
+        } else if (sueldo >=3000)  {
+            double porcentaje = 8;
+            porcentaje = porcentaje / 100;
+            double total = porcentaje * sueldo;
+            Salida.setText("LA RETENCION DE SU SUELDO ES DE: " + total);
+        }
+
     }
 
     /**
@@ -30,6 +52,11 @@ public class Salario extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        Salario = new javax.swing.JTextField();
+        BUTTON = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        Salida = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -38,21 +65,61 @@ public class Salario extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Elephant", 0, 27)); // NOI18N
         jLabel1.setText("SISTEMA DE SALARIOS DE EMPLEADOS");
 
+        jLabel2.setFont(new java.awt.Font("Georgia", 0, 18)); // NOI18N
+        jLabel2.setText("CALCULA LA RETENCION DE TU SALARIO..");
+
+        Salario.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
+        Salario.setText("INGRESA EL MONTO DE TU SALARIO");
+
+        BUTTON.setBackground(new java.awt.Color(250, 117, 117));
+        BUTTON.setText("CALCULAR");
+        BUTTON.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BUTTONActionPerformed(evt);
+            }
+        });
+
+        Salida.setColumns(20);
+        Salida.setRows(5);
+        jScrollPane1.setViewportView(Salida);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel1))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(290, 290, 290)
+                        .addComponent(BUTTON))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(141, 141, 141)
+                        .addComponent(jLabel2)))
                 .addContainerGap(7, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(Salario)
+                    .addComponent(jScrollPane1))
+                .addGap(198, 198, 198))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addComponent(jLabel1)
-                .addContainerGap(427, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel2)
+                .addGap(76, 76, 76)
+                .addComponent(Salario, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(BUTTON)
+                .addGap(33, 33, 33)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(112, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -68,6 +135,10 @@ public class Salario extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void BUTTONActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BUTTONActionPerformed
+        Final();
+    }//GEN-LAST:event_BUTTONActionPerformed
 
     /**
      * @param args the command line arguments
@@ -95,7 +166,12 @@ public class Salario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BUTTON;
+    private javax.swing.JTextField Salario;
+    private javax.swing.JTextArea Salida;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }
