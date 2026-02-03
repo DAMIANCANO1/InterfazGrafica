@@ -25,24 +25,30 @@ public class DoWhile extends javax.swing.JFrame {
     
     
     public void Final(){
-        //diseñar el menun medianteb un String
+        String op="";
         
-        String menu = "---MENU OPERACIONES BASICAS---\n"
-                + "1.- Suma\n"
-                + "2.- Resta\n"
-                + "3.- Multiplicacion\n"
-                + "4.- Division\n"
-                + "5.- Salir\n";
-        int op = Integer.parseInt(JOptionPane.showInputDialog(null, menu,"SELECTOR",JOptionPane.QUESTION_MESSAGE));
-        
-        // menu que se repite
-        do{
+        do {
+            String menu = "---MENU OPERACIONES BASICAS---\n"
+                    + "1.- Suma\n"
+                    + "2.- Resta\n"
+                    + "3.- Multiplicacion\n"
+                    + "4.- Division\n"
+                    + "5.- Salir\n";
+            op = JOptionPane.showInputDialog(null, menu, "SELECTOR", JOptionPane.QUESTION_MESSAGE);
+
+            if (op == null) {
+                System.out.println("DIALOGO CERRADO");
+                return;
+            }
+
+            // menu que se repite
             switch(op){
-                case 1:
+                case "1":
                     Suma miSuma = new Suma();
                     miSuma.setVisible(true);
+                    this.dispose();
                     break;  
-                case 5:
+                case "5":
                     System.exit(0);
                     
                 default:
@@ -50,7 +56,7 @@ public class DoWhile extends javax.swing.JFrame {
                     break;
                         
             }        
-        }while(op!=5);
+        }while(op!="5");
         
     }
 
@@ -77,6 +83,11 @@ public class DoWhile extends javax.swing.JFrame {
 
         jButton1.setFont(new java.awt.Font("Elephant", 0, 14)); // NOI18N
         jButton1.setText("OPERACIONES");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/HOLa.jpg"))); // NOI18N
 
@@ -122,6 +133,10 @@ public class DoWhile extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Final();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
