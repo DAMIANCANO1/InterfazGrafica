@@ -42,22 +42,38 @@ public class DoWhile extends javax.swing.JFrame {
             }
 
             // menu que se repite
-            switch(op){
+            switch (op) {
                 case "1":
                     Suma miSuma = new Suma();
                     miSuma.setVisible(true);
                     this.dispose();
-                    break;  
+                    break;
+                case "2":
+                    Resta miResta = new Resta();
+                    miResta.setVisible(true);
+                    this.dispose();
+                    break;
+                case "3":
+                    Multip miMultip = new Multip();
+                    miMultip.setVisible(true);
+                    this.dispose();
+                    break;
+                case "4":
+                    Division miDivision = new Division();
+                    miDivision.setVisible(true);
+                    this.dispose();
+                    break;
+
                 case "5":
                     System.exit(0);
-                    
+
                 default:
                     JOptionPane.showMessageDialog(null, "opcion no valida");
                     break;
-                        
-            }        
-        }while(op!="5");
-        
+
+            }
+        } while (op != "5");
+
     }
 
     /**
