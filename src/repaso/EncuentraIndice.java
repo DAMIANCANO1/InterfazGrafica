@@ -12,17 +12,31 @@ import javax.swing.JOptionPane;
  */
 public class EncuentraIndice {
     
-    public static int encuentraIndice (int arr[], int valor){
+    public static int[] encuentraIndice (int arr[], int valor){
         //1.- recorrer el arreglo par encontrar la igualda de valores 
         // y determinar el indice 
+        
+        int contador = 0;
 
         for (int i = 0; i < arr.length; i++) {
             if (valor == arr[i]) {
-                return i;
+                contador++;             
             }
         }
-        return 0;
+        
+        int arr2[] = new int [contador];
+        int j  = 0;
+        
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == valor) {
+                arr2[j] = i;
+                j++;
+            }
+        }
+        return arr2;
     }
+    
+    
     public static void main (String args[]){
         int Posiciones = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingresa la longitud del arreglo: "));
         
@@ -32,8 +46,16 @@ public class EncuentraIndice {
             arr[i]= Integer.parseInt(JOptionPane.showInputDialog(null, "ingresa un valor "));
         }
         
-        int Valor = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingresa valor a busacar"));
-        int ValorE = encuentraIndice(arr, Valor);
+        int Valor = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingresa valor a buscar"));
+        int [] ValorE = encuentraIndice(arr, Valor);
+        
+        String PosicionesA = "";
+        
+        for (int i = 0; i < ValorE.length; i++){
+            PosicionesA = PosicionesA +" "+ ValorE[i]+" ";          
+        }
+         
+        JOptionPane.showMessageDialog(null, "el valor ingresado se localizo\n en la posicion "+PosicionesA+" en el arreglo");
     }
 
 }
