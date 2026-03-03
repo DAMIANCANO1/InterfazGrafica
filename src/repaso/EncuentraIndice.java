@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
 public class EncuentraIndice {
     
     public static int[] encuentraIndice (int arr[], int valor){
-        //1.- recorrer el arreglo par encontrar la igualda de valores 
+        //1.- recorrer el arreglo par encontrar la igualdad de valores 
         // y determinar el indice 
         
         int contador = 0;

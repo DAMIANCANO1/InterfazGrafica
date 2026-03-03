@@ -55,7 +55,7 @@ public class SubArreglos {
                 t++;
             }
             //comprobar la creacion de sub arreglos 
-            System.out.println("El arreglo en la interaccion "+i+"es:");
+            System.out.println("El arreglo en la interaccion "+i+" es:");
             System.out.println();
             
             for (int j = 0; j < temp.length; j++) {
