@@ -28,7 +28,9 @@ public class SelectionSort {
         //Se lee el arreglo a ordenar ingresado
         //desde el teclado 
         //leer el numero de elementos del arreglo
+        System.out.print("INGRESA LA CANTIDAD DE VALORES: ");
         int Valores = Enter.nextInt();
+        System.out.println();
         int Desordenado[] = new int[Valores];
         for (int i = 0; i < Desordenado.length; i++) {
             System.out.println("ingresa el elemento " + i + " para el arreglo: ");
@@ -60,7 +62,7 @@ public class SelectionSort {
         //se declarfa un ciclo principal sobre
         //el que se recorre todo el arreglo principal
         //y permitira ir creando sub arreglos
-        for (int i = Desordenado.length - 1; i >= 0; i--) {
+        for (int i =0; i < Desordenado.length; i++) {
             //igualar t a i para que el sub arreglo
             //pueda tener los elementos del arreglo
             //original conforme se vayan necesitando
@@ -88,8 +90,22 @@ public class SelectionSort {
             //almacenar en una variable temporal el valor de 
             //la posicion actual en la que esta en el arreglo
             
+            Tempi = Desordenado[i];
+            
+            Desordenado[i]=Desordenado[index];
+            Desordenado[index]= Tempi;
+            //se disminuye la variable leng para ir disminuyendp
+            //las posiciones a ordenar del del arreglo principal
             leng--;
         }
+        System.out.println("El arreglo ordenado es:");
+        System.out.println();
+        for (int i = 0; i < Desordenado.length; i++) {
+            System.out.println("|"+Desordenado[i]+"|");
+            
+        }
+        
+        
     }
     public static int encuentraMinimo(int arr[]) {
         int min = arr[0];
