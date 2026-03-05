@@ -83,6 +83,11 @@ public class SelectionSort {
             }
             //se localiza el elemento minimo del arreglo actual
             Minimo = encuentraMinimo(temp);
+            index = encuentraposicion(Desordenado, Minimo);
+            
+            //almacenar en una variable temporal el valor de 
+            //la posicion actual en la que esta en el arreglo
+            
             leng--;
         }
     }
@@ -99,6 +104,16 @@ public class SelectionSort {
             }
         }
         return min;
+    }
+    
+    public static int encuentraposicion (int ar[], int v){
+        for (int i = 0; i < ar.length; i++) {
+            if (v == ar [i]){
+                return i;
+            }
+            
+        }
+        return 0;
     }
 
 }
