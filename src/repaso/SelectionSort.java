@@ -17,6 +17,7 @@ public class SelectionSort {
         //declarar una variable que almacenara
         //al elemento minimo de cada arreglo
         int Minimo = 0;
+        int Mayor = 0;
         //declaraar variable que almacenara
         //de manera temporal in elemento del 
         //arreglo para que no se pierda 
@@ -50,6 +51,7 @@ public class SelectionSort {
             System.out.println("INGRESA 2 PARA ORDENAR DE MAYOR A MENOR");
             System.out.println("INGRESA 3 PARA SALIR");
             int Menu = Enter.nextInt();
+
             if (Menu == 1) {
                 System.out.println();
 
@@ -103,62 +105,53 @@ public class SelectionSort {
                     //las posiciones a ordenar del del arreglo principal
                     leng--;
                 }
+
                 System.out.println("El arreglo ordenado es:");
                 System.out.println();
                 for (int i = 0; i < Desordenado.length; i++) {
                     System.out.println("|" + Desordenado[i] + "|");
-
                 }
 
             } else if (Menu == 2) {
+                System.out.println();
+
+                //se declara un arreglo temporal que ira
+                //conteniendo a los subarreglos del arreglo org
                 int temp[];
-              
+
                 int leng = Desordenado.length;
-
                 int t;
+                for (int i = 0; i < Desordenado.length; i++) {
 
-                for (int i = Desordenado.length-1; i >=0; i++) {
-                    //igualar t a i para que el sub arreglo
-                    //pueda tener los elementos del arreglo
-                    //original conforme se vayan necesitando
-                    //se comienza con el arreglo completo y 
-                    //se ira quitando una posicion en cada vuelta
                     t = i;
-                    //se inicializa el arreglo temporal con la 
-                    //cantidad de posiciones que solo se van a 
-                    //necesitar. La variable lengh ira cambiando
-                    //conforme se vayan quitando posiciones del 
-                    //arreglo original
+
                     temp = new int[leng];
-                    //se procede a llenar el arreglo temporar con los
-                    //elementos requeridos del arreglo original
                     for (int k = 0; k < temp.length; k++) {
-                        //se va copiando al arreglo temporar los
-                        //elemento que se necesitan
                         temp[k] = Desordenado[t];
                         t++;
                     }
-                    //se localiza el elemento minimo del arreglo actual
-                    Minimo = encuentraMinimo(temp);
-                    index = encuentraposicion(Desordenado, Minimo);
-
-                    //almacenar en una variable temporal el valor de 
-                    //la posicion actual en la que esta en el arreglo
+                    Mayor = EncuentraMayor(temp);
+                    index = encuentraposicion(Desordenado, Mayor);
                     Tempi = Desordenado[i];
 
                     Desordenado[i] = Desordenado[index];
                     Desordenado[index] = Tempi;
-                    //se disminuye la variable leng para ir disminuyendp
-                    //las posiciones a ordenar del del arreglo principal
                     leng--;
+                } 
 
+                System.out.println("El arreglo ordenado es:");
+                System.out.println();
+                for (int i = 0; i < Desordenado.length; i++) {
+                    System.out.println("|" + Desordenado[i] + "|");
                 }
-            } else if (Menu == 3) {
-                Bandera = true;
+            }
+            else if (Menu == 3) {
                 break;
             }
         }
     }
+       
+   
 
     public static int encuentraMinimo(int arr[]) {
         int min = arr[0];
@@ -184,8 +177,18 @@ public class SelectionSort {
         }
         return 0;
     }
+
+    public static int EncuentraMayor(int arr[]) {
+        int min = arr[0];
+        int mayor = arr[0]; 
+        for (int i = 1; i < arr.length; i++) {
+            if (min >= arr[i]) {
+                min = arr[i];
+            } else if (mayor <= arr[i]) {
+                mayor = arr[i];
+            }
+        }
+        return mayor;
+
+    }
 }
-
-    
-
-
