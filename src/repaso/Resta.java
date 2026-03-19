@@ -76,6 +76,12 @@ public class Resta extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel2.setText("INGRESAN EL PRIME DIGITO");
 
+        Entrada1Resta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Entrada1RestaActionPerformed(evt);
+            }
+        });
+
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel4.setText("INGRESAN EL SEGUNDO DIGITO");
 
@@ -167,6 +173,10 @@ public class Resta extends javax.swing.JFrame {
         menu.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnRegresarActionPerformed
+
+    private void Entrada1RestaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Entrada1RestaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Entrada1RestaActionPerformed
 
     /**
      * @param args the command line arguments
