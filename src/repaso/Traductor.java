@@ -33,6 +33,9 @@ public class Traductor {
                 case 2:
                     System.out.println(" TRADUCCION DE INGLES A ESPAÑOL ");
                     System.out.println(" ------Ingresa tu palabra------ ");
+                    String Ingles = Enter.next();
+                    String Tradu = In(Ingles);
+                    System.out.println(In(Ingles));
                     break;
                 case 3:
                     System.exit(0);
@@ -56,6 +59,21 @@ public class Traductor {
             Resultado = "SISTER";
         }  
       return Resultado ;
+    }
+    
+    public static String In(String INN) {
+        String Resultado1 = " ";
+        if (INN.equalsIgnoreCase("FATHER") || INN.equalsIgnoreCase("dad")) {
+            Resultado1 = "Padre";     
+        }else if (INN.equalsIgnoreCase("MOTHER")|| INN.equalsIgnoreCase("Mom")){
+            Resultado1 = "Mama";
+        }else if (INN.equalsIgnoreCase("BROTHER")|| INN.equalsIgnoreCase("Bro")){
+            Resultado1 = "Hermano";
+        }
+        else if (INN.equalsIgnoreCase("SISTER")|| INN.equalsIgnoreCase("sisterna")){
+            Resultado1 = "Hermana";
+        }  
+      return Resultado1 ;
     }
     
 }
