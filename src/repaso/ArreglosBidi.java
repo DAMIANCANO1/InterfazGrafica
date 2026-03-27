@@ -24,7 +24,21 @@ public class ArreglosBidi {
             }
         }
         ImprimeArray(arr);
+        
+        JOptionPane.showInputDialog(null, " INGRESA 1 PARA DIAGONAL \n INGRESA 2 PARA DIAGONAL INVERTIDA \n INGRESA 3 PARA TRINANGULO SUPERIOR DERECHO \n"
+                + "INGRESA 4 PARA TRIANGULO SUPERIOR IZQUIERDO \n INGRESA 5 PARA TRIANGULO INFERIOR DERECHO \n INGRESA 6 PARA TRIANGULO INFERIOR IZQUIERDO ");
+        
         JOptionPane.showMessageDialog(null, "Tableros con arreglos bidimensionales");
+        System.out.println();
+        
+        JOptionPane.showMessageDialog(null, "DIAGONAL INVERTIDA");
+        DiagonalEnCero(arr);
+        ImprimeArray(arr);
+        
+        JOptionPane.showMessageDialog(null, "DIAGONAL INVERTIDA");
+        DigonalInvertida(arr);
+        ImprimeArray(arr);
+        
     }
     
     public static void ImprimeArray(int arr[][]) {
@@ -33,7 +47,7 @@ public class ArreglosBidi {
             for (int j = 0; j < arr[0].length; j++) {
                 System.out.print(arr[i][j] + " ");
             }
-            System.out.println("");
+            System.out.println();
         }
     }
     
@@ -45,6 +59,17 @@ public class ArreglosBidi {
                 } else {
                     arr[i][j] = arr[i][j];
                 }
+            }
+        }
+    }
+    
+    public static void DigonalInvertida(int arr[][]) {
+        for (int i = 0; i< arr.length; i++) {
+            for (int j = arr[0].length-1; j >=0; j--) {
+                    
+                if (i + j == arr.length-1) {
+                    arr[i][j] = 0;
+                }  
             }
         }
     }
